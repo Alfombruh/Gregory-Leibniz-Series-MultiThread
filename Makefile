@@ -2,7 +2,6 @@ NAME = pi
 CC = gcc
 CFLAGS = -Werror -Wall -Werror -fsanitize=address -g3
 FILES = srcs/main \
-		srcs/calcs \
 		srcs/utils
 
 SRCS = $(addsuffix .c, $(FILES))

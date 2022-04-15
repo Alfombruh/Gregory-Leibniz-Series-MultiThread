@@ -20,10 +20,8 @@ int	fill_struct(t_pi *pi)
 	while (++i < NUM_THREADS)
 	{
 		pi->core[i].pi = pi;
-		pi->core[i].core_n = i + 1;
-		pi->core[i].start_num = calc_start(i + 1);
+		pi->core[i].core_n = i;
 		pi->core[i].total = 0;
-		printf("THREAD N=%d allocated\n", i + 1);
 	}
 	return (0);
 }
