@@ -2,7 +2,7 @@
 #define PI_H
 
 #ifndef NUM_THREADS
-#define NUM_THREADS 6
+#define NUM_THREADS 200
 #endif 
 
 #include <pthread.h>
@@ -21,7 +21,7 @@ typedef struct s_pi
 	t_th		*core;
 }				t_pi;
 
-int	ft_error(char *msg);
+int	ft_error(char *msg, t_pi *pi);
 int	fill_struct(t_pi *pi);
 
 #endif

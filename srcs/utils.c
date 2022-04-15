@@ -2,9 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int ft_error(char *msg)
+int ft_error(char *msg, t_pi *pi)
 {
 	printf("%s\n", msg);
+	free(pi->core);
 	return (1);
 }
 

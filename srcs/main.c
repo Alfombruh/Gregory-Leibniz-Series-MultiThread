@@ -1,6 +1,7 @@
 #include "../includes/pi.h"
 #include <pthread.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 static void *GLSerie(void *arg)
 {
@@ -9,7 +10,7 @@ static void *GLSerie(void *arg)
 
 	th = (t_th *)arg;
 	i = th->core_n;
-	while(i < 1000000000)
+	while(i < 100000000000)
 	{
 		if (i % 2 == 0)
 			th->total += 1.00000000 / (2.00000000* i + 1.00000000000);
@@ -27,18 +28,19 @@ int main()
 
 	i = -1;
 	if (fill_struct(&pi))
-		return (ft_error("struct filling error"));
+		return (ft_error("struct filling error", &pi));
 	while (++i < NUM_THREADS)
 		if (pthread_create(&pi.core[i].th, NULL, GLSerie, &pi.core[i]))
-			return (ft_error("error creating threads"));
+			return (ft_error("error creating threads", &pi));
 	i = -1;
 	while (++i < NUM_THREADS)
 		if (pthread_join(pi.core[i].th, NULL))
-			return (ft_error("error joining theads"));
+			return (ft_error("error joining theads", &pi));
 	i = -1;
 	while (++i < NUM_THREADS)
 		pi.total += pi.core[i].total;
 	pi.total *= 4.0;
 	printf("%0.10LF\n", pi.total);
+	free(pi.core);
 	return (0);
 }
