@@ -11,6 +11,7 @@
   <p>If, for some unknown reason, you wanna run this at home I suggest you check how many cores your CPU has and then change, in the includes/pi.h file, the #define NUM_THREADS from 6 to your name of cores</p>
   <p>If you want to get a bigger value just change the srcs/main.c 42th lines printf's 0.N (N being the value to change)<br>
    EX: printf("%0.15LF\n", pi.total); (to get 15 digits)</p>
+ <p>In case you are using Linux change in the Makefile the CFLAGS line and change -pthread for -lpthread, this should make it run<\p>
   <h2 style="text-align: center;"> <3 </h2>
  </body>
 </html>
