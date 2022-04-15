@@ -39,6 +39,6 @@ int main()
 	while (++i < NUM_THREADS)
 		pi.total += pi.core[i].total;
 	pi.total *= 4.0;
-	printf("%LF\n", pi.total);
+	printf("%0.10LF\n", pi.total);
 	return (0);
 }
